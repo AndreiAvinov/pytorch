@@ -36,10 +36,11 @@ RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Mini
     /opt/conda/bin/conda install -y python=${PYTHON_VERSION} conda-build pyyaml jupyterlab numpy ipython&& \
     /opt/conda/bin/conda clean -ya
 
-FROM dev-base as submodule-update
-WORKDIR /opt/pytorch
-COPY . .
-RUN git submodule update --init --recursive --jobs 0
+# no update :(
+#FROM dev-base as submodule-update
+#WORKDIR /opt/pytorch
+#COPY . .
+#RUN git submodule update --init --recursive --jobs 0
 
 FROM conda as build
 WORKDIR /opt/pytorch
